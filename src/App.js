@@ -2,7 +2,7 @@ import React from 'react'
 
 import './App.css'
 
-import TaskForm from './todoList/TaskForm'
+import Form from './todoList/TaskForm'
 import TodoList from './todoList/TodoList'
 
 class App extends React.Component {
@@ -29,10 +29,14 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App App-header">
-        <h1>Todo List</h1>
-        <TaskForm handleSubmit={this.addList} text="Add List" />
-        {this.state.listOfList.map(t => <TodoList name={t.name} id={t.key} key={t.key} remove={this.removeList} />)}
+      <div className="App">
+        <h1 className="AppTitle AppElement">Todo List</h1>
+        <div className="AppForm AppElement">
+          <Form handleSubmit={this.addList} text="Add List" />
+        </div>
+        {this.state.listOfList.map(t =>
+          <TodoList name={t.name} id={t.key} key={t.key} remove={this.removeList} />
+        )}
       </div>
     )
   }

@@ -13,7 +13,7 @@ class Task extends React.Component {
 
   render() {
     return (
-      <li>{this.props.name} <input type="submit" value="Delete Task" onClick={this.remove}></input>
+      <li className="Task clearfix"><span className="TaskText">{this.props.name} </span><input type="submit" value="Delete Task" onClick={this.remove} className="Delete TaskDelete"></input>
       </li>
     )
   }

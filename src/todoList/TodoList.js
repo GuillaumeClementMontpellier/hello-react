@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Task from './Task'
-import TaskForm from './TaskForm'
+import Form from './TaskForm'
 
 class TodoList extends React.Component {
 
@@ -32,10 +32,17 @@ class TodoList extends React.Component {
 
   render() {
     return (
-      <div style={{ display: 'inline-block' }}>
-        <h2>{this.props.name}</h2> <input type="submit" value="Delete List" onClick={this.remove}></input>
-        <ul>{this.state.tasks.map(t => <Task name={t.name} id={t.key} key={t.key} remove={this.removeTask} />)}</ul>
-        <TaskForm handleSubmit={this.addTask} text="Add Task" />
+      <div className="TodoList">
+        <div className="clearfix">
+          <h2 className="ListTitle">{this.props.name}</h2> <input className="ListDelete Delete" type="submit" value="Delete List" onClick={this.remove}></input>
+        </div>
+        <ul className="ListTasks">
+          {this.state.tasks.map(t =>
+            <Task name={t.name} id={t.key} key={t.key} remove={this.removeTask} />)}
+        </ul>
+        <div className="ListForm">
+          <Form handleSubmit={this.addTask} text="Add Task" />
+        </div>
       </div>
     )
   }

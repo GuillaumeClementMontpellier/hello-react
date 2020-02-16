@@ -1,6 +1,6 @@
 import React from 'react'
 
-class TaskForm extends React.Component {
+class Form extends React.Component {
 
   constructor(props) {
     super(props)
@@ -15,12 +15,12 @@ class TaskForm extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input name="textArea"></input>
-        <input type="submit" onClick={this.handleSubmit} value={this.props.text} ></input>
+      <form onSubmit={this.handleSubmit} className="Form">
+        <input type="text" name="textArea" className="FormTextInput"></input>
+        <input type="submit" className="FormSubmit" onClick={this.handleSubmit} value={this.props.text} ></input>
       </form>
     )
   }
 }
 
-export default TaskForm
+export default Form
